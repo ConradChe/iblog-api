@@ -1,0 +1,36 @@
+2020-01-28 [main] INFO  IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 13068 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-01-28 [main] INFO  IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-01-28 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-01-28 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-01-28 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-01-28 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-01-28 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2113 ms
+2020-01-28 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-01-28 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-01-28 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-01-28 [main] INFO  IblogApiApplication - Started IblogApiApplication in 4.626 seconds (JVM running for 6.529)
+2020-01-28 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-01-28 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-01-28 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2020-01-28 [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-01-28 [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-01-28 [http-nio-8081-exec-1] DEBUG BlogMapper.findBlogs - ==>  Preparing: SELECT * FROM t_blog WHERE 1=1 and user_id = ?
+2020-01-28 [http-nio-8081-exec-1] DEBUG BlogMapper.findBlogs - ==> Parameters: 2(Integer)
+2020-01-28 [http-nio-8081-exec-1] DEBUG BlogMapper.findBlogs - <==      Total: 0
+2020-01-28 [http-nio-8081-exec-4] DEBUG BlogMapper.findBlogs - ==>  Preparing: SELECT * FROM t_blog WHERE 1=1 and user_id = ?
+2020-01-28 [http-nio-8081-exec-4] DEBUG BlogMapper.findBlogs - ==> Parameters: 2(Integer)
+2020-01-28 [http-nio-8081-exec-4] TRACE BlogMapper.findBlogs - <==    Columns: blog_id, user_id, user_nickname, title, content, is_hide, like_num, comment_num, blog_status, operate_time, check_time
+2020-01-28 [http-nio-8081-exec-4] TRACE BlogMapper.findBlogs - <==        Row: B80813516638456282112, 2, Che2, 测试, <<BLOB>>, 2, 3, 0, 0, 2019-12-15 14:45:19.0, null
+2020-01-28 [http-nio-8081-exec-4] DEBUG BlogMapper.findBlogs - <==      Total: 1
+2020-01-28 [http-nio-8081-exec-2] DEBUG BlogMapper.findBlogs - ==>  Preparing: SELECT * FROM t_blog WHERE 1=1
+2020-01-28 [http-nio-8081-exec-2] DEBUG BlogMapper.findBlogs - ==> Parameters:
+2020-01-28 [http-nio-8081-exec-2] TRACE BlogMapper.findBlogs - <==    Columns: blog_id, user_id, user_nickname, title, content, is_hide, like_num, comment_num, blog_status, operate_time, check_time
+2020-01-28 [http-nio-8081-exec-2] TRACE BlogMapper.findBlogs - <==        Row: B80813516638456282112, 2, Che2, 测试, <<BLOB>>, 2, 3, 0, 0, 2019-12-15 14:45:19.0, null
+2020-01-28 [http-nio-8081-exec-2] TRACE BlogMapper.findBlogs - <==        Row: B80813534866564430848, 1, Che, 成都之行, <<BLOB>>, 2, 6, 0, 0, 2019-12-28 11:47:54.0, null
+2020-01-28 [http-nio-8081-exec-2] TRACE BlogMapper.findBlogs - <==        Row: B80813534866708413440, 1, Che, 成都之行, <<BLOB>>, 2, 0, 0, 0, 2019-12-28 11:48:03.0, null
+2020-01-28 [http-nio-8081-exec-2] TRACE BlogMapper.findBlogs - <==        Row: B80813534870861560832, 1, Che, 哈哈, <<BLOB>>, 2, 0, 0, 0, 2019-12-28 11:52:17.0, null
+2020-01-28 [http-nio-8081-exec-2] TRACE BlogMapper.findBlogs - <==        Row: B80813534925275167744, 1, Che, vbnmvb, <<BLOB>>, 2, 5, 0, 0, 2019-12-28 12:47:38.0, null
+2020-01-28 [http-nio-8081-exec-2] DEBUG BlogMapper.findBlogs - <==      Total: 5
+2020-01-28 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-01-28 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-01-28 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

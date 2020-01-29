@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iblog.mapper.UserMapper">
+    <insert id="addUser">
+        INSERT INTO t_user (phone, PASSWORD, nickname)
+        VALUES (#{phone},#{password},#{nickname})
+    </insert>
+
+    <select id="queryUser" resultType="com.iblog.entity.User">
+        select * from t_user
+        where 1=1
+        <if test="phone != null and phone != ''">
+            and phone = #{phone}
+        </if>
+    </select>
+</mapper>
