@@ -1,6 +1,7 @@
 package com.iblog.entity;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @program: iblog-api
@@ -14,12 +15,20 @@ public class Blog {
     private String userNickname;
     private String title;
     private String content;
+    private String contentHtml;
+    private List<Tag> tagList;
+    private String tags;
+    private String categoryId;
+    private String categoryName;
+    private String summary;
+    private Integer viewNum;
     private Integer isHide;
     private Integer likeNum;
     private Integer commentNum;
     private Integer blogStatus;
-    private Date operateTime;
+    private Date createTime;
     private Date checkTime;
+    private Date updateTime;
 
     public String getBlogId() {
         return blogId;
@@ -93,13 +102,6 @@ public class Blog {
         this.blogStatus = blogStatus;
     }
 
-    public Date getOperateTime() {
-        return operateTime;
-    }
-
-    public void setOperateTime(Date operateTime) {
-        this.operateTime = operateTime;
-    }
 
     public Date getCheckTime() {
         return checkTime;
@@ -107,5 +109,102 @@ public class Blog {
 
     public void setCheckTime(Date checkTime) {
         this.checkTime = checkTime;
+    }
+
+    public String getContentHtml() {
+        return contentHtml;
+    }
+
+    public void setContentHtml(String contentHtml) {
+        this.contentHtml = contentHtml;
+    }
+
+    public List<Tag> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<Tag> tagList) {
+        this.tagList = tagList;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public Integer getViewNum() {
+        return viewNum;
+    }
+
+    public void setViewNum(Integer viewNum) {
+        this.viewNum = viewNum;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "blogId='" + blogId + '\'' +
+                ", userId=" + userId +
+                ", userNickname='" + userNickname + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", contentHtml='" + contentHtml + '\'' +
+                ", tagList=" + tagList +
+                ", tags='" + tags + '\'' +
+                ", categoryId='" + categoryId + '\'' +
+                ", categoryName='" + categoryName + '\'' +
+                ", summary='" + summary + '\'' +
+                ", viewNum=" + viewNum +
+                ", isHide=" + isHide +
+                ", likeNum=" + likeNum +
+                ", commentNum=" + commentNum +
+                ", blogStatus=" + blogStatus +
+                ", createTime=" + createTime +
+                ", checkTime=" + checkTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

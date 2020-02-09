@@ -8,5 +8,5 @@ public interface UserService {
 
     int addUser(User user);
 
-    List<User> queryUser(String phone);
+    List<User> queryUser(User user);
 }

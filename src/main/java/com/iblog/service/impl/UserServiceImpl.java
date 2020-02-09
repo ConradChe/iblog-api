@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> queryUser(String phone) {
-        return userMapper.queryUser(phone);
+    public List<User> queryUser(User user) {
+        return userMapper.queryUser(user);
     }
 }

@@ -1,33 +1,900 @@
-2020-01-29 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 14308 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
-2020-01-29 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
-2020-01-29 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
-2020-01-29 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2020-01-29 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-01-29 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-01-29 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2811 ms
-2020-01-29 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-01-29 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
-2020-01-29 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 10.691 seconds (JVM running for 18.127)
-2020-01-29 [http-nio-8081-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-01-29 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2020-01-29 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 28 ms
-2020-01-29 [http-nio-8081-exec-3] WARN  org.springframework.web.servlet.PageNotFound - No mapping for GET /favicon.ico
-2020-01-29 [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2020-01-29 [http-nio-8081-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2020-01-29 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.BlogMapper.findBlogs - ==>  Preparing: SELECT * FROM t_blog WHERE 1=1 
-2020-01-29 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.BlogMapper.findBlogs - ==>  Preparing: SELECT * FROM t_blog WHERE 1=1 and user_id = ? 
-2020-01-29 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.BlogMapper.findBlogs - ==> Parameters: 
-2020-01-29 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.BlogMapper.findBlogs - ==> Parameters: 2(Integer)
-2020-01-29 [http-nio-8081-exec-2] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==    Columns: blog_id, user_id, user_nickname, title, content, is_hide, like_num, comment_num, blog_status, operate_time, check_time
-2020-01-29 [http-nio-8081-exec-1] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==    Columns: blog_id, user_id, user_nickname, title, content, is_hide, like_num, comment_num, blog_status, operate_time, check_time
-2020-01-29 [http-nio-8081-exec-1] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==        Row: B80813516638456282112, 2, Che2, 测试, <<BLOB>>, 2, 3, 0, 0, 2019-12-15 14:45:19.0, null
-2020-01-29 [http-nio-8081-exec-2] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==        Row: B80813516638456282112, 2, Che2, 测试, <<BLOB>>, 2, 3, 0, 0, 2019-12-15 14:45:19.0, null
-2020-01-29 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.BlogMapper.findBlogs - <==      Total: 1
-2020-01-29 [http-nio-8081-exec-1] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==        Row: B80813534866564430848, 1, Che, 成都之行, <<BLOB>>, 2, 6, 0, 0, 2019-12-28 11:47:54.0, null
-2020-01-29 [http-nio-8081-exec-1] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==        Row: B80813534866708413440, 1, Che, 成都之行, <<BLOB>>, 2, 0, 0, 0, 2019-12-28 11:48:03.0, null
-2020-01-29 [http-nio-8081-exec-1] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==        Row: B80813534870861560832, 1, Che, 哈哈, <<BLOB>>, 2, 0, 0, 0, 2019-12-28 11:52:17.0, null
-2020-01-29 [http-nio-8081-exec-1] TRACE com.iblog.mapper.BlogMapper.findBlogs - <==        Row: B80813534925275167744, 1, Che, vbnmvb, <<BLOB>>, 2, 5, 0, 0, 2019-12-28 12:47:38.0, null
-2020-01-29 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.BlogMapper.findBlogs - <==      Total: 5
-2020-01-29 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-01-29 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2020-01-29 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 11800 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-01 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-01 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2510 ms
+2020-02-01 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-02-01 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-02-01 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 6.201 seconds (JVM running for 11.055)
+2020-02-01 [http-nio-8081-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 92 ms
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-15] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-15] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-15] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-15] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-15] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-15] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-15] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-15] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-15] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-16] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-23] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-23] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-24] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-24] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-23] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-24] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-27] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-27] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-27] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-27] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-28] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-27] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-27] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-27] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-28] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-27] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-27] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-28] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-28] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-4] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-4] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-4] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-19] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-19] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-19] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-23] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-24] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-24] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-23] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-23] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-23] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-24] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-24] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-26] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-26] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-26] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-25] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-25] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-25] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-29] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-29] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-29] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-30] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-29] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-30] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-29] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-29] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-29] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-29] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-29] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-30] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-30] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-4] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-4] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-4] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-4] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-3] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-6] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-6] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-5] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-5] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-8] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-8] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-8] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-8] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-8] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-8] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-7] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-7] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-7] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-7] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-10] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-9] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-10] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-9] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-13] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-13] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-14] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-14] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-19] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-19] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-19] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-19] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-22] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-20] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-20] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-22] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-22] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-20] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-20] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-26] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-26] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-26] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-26] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-25] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-25] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-25] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-25] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-01 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 12720 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-01 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-01 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1457 ms
+2020-02-01 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-02-01 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-02-01 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 3.397 seconds (JVM running for 5.256)
+2020-02-01 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 8432 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-01 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-01 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1787 ms
+2020-02-01 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-02-01 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-02-01 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 4.548 seconds (JVM running for 6.296)
+2020-02-01 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-4] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException] with root cause
+java.lang.IllegalArgumentException: null
+	at java.util.Date.parse(Date.java:617)
+	at java.util.Date.<init>(Date.java:274)
+	at com.iblog.controller.BlogController.addBlog(BlogController.java:45)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-02-01 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-01 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 924 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-01 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-01 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1759 ms
+2020-02-01 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-02-01 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-02-01 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 4.317 seconds (JVM running for 6.213)
+2020-02-01 [http-nio-8081-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+2020-02-01 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-01 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 15500 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-01 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-01 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2112 ms
+2020-02-01 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-02-01 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-02-01 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 4.87 seconds (JVM running for 7.11)
+2020-02-01 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-01 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 7792 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-01 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-01 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2282 ms
+2020-02-01 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-02-01 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-02-01 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 5.385 seconds (JVM running for 7.636)
+2020-02-01 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogMapper.addBlog - ==>  Preparing: INSERT INTO t_blog ( blog_id, user_id, user_nickname, title, content, content_html, category_id, category_name, is_hide, summary, create_time, update_time ) values (?,?,?,?,?,?,?, ?,?,?,?,?) 
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogMapper.addBlog - ==> Parameters: B80813584434300091392(String), 1(Integer), Conrard(String), 121(String), 1212(String), <p>1212</p>
+(String), 1(String), 娱乐(String), 1(Integer), 3123(String), 2020-02-01 12:10:49.401(Timestamp), 2020-02-01 12:10:49.401(Timestamp)
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogMapper.addBlog - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==>  Preparing: insert into l_blog_tag (blog_id,tag_id) values (?,?) 
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==> Parameters: B80813584434300091392(String), 2(Integer)
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==>  Preparing: insert into l_blog_tag (blog_id,tag_id) values (?,?) 
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==> Parameters: B80813584434300091392(String), 3(Integer)
+2020-02-01 [http-nio-8081-exec-3] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - <==    Updates: 1
+2020-02-01 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-01 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Starting IblogApiApplication on DESKTOP-JGO0B7F with PID 1180 (E:\WebstormProjects\iblog-api\target\classes started by Che in E:\WebstormProjects\iblog-api)
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - No active profile set, falling back to default profiles: default
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-02-01 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-01 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-02-01 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1657 ms
+2020-02-01 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-02-01 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-02-01 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-01 [main] INFO  com.iblog.IblogApiApplication - Started IblogApiApplication in 4.137 seconds (JVM running for 6.026)
+2020-02-01 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-02-01 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-2] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-2] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 5
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-1] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-1] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.CategoryMapper.addCategory - ==>  Preparing: insert into t_category(category_id,category_name,user_id,create_time) values (?,?,?,?) 
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.CategoryMapper.addCategory - ==> Parameters: B80813584601004194817(String), 测试(String), 1(Integer), 2020-02-01 15:00:24.212(Timestamp)
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.CategoryMapper.addCategory - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.BlogMapper.addBlog - ==>  Preparing: INSERT INTO t_blog ( blog_id, user_id, user_nickname, title, content, content_html, category_id, category_name, is_hide, summary, create_time, update_time ) values (?,?,?,?,?,?,?, ?,?,?,?,?) 
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.BlogMapper.addBlog - ==> Parameters: B80813584601004194816(String), 1(Integer), Conrad(String), 测试标题(String), 测试内容
+![20180119173406_431.png](http://localhost:8081/iblog/files/20200201/75e31acd-66cb-445b-8b5f-0f60112ded07_20180119173406_431.png)(String), <p>测试内容<br />
+<img src="http://localhost:8081/iblog/files/20200201/75e31acd-66cb-445b-8b5f-0f60112ded07_20180119173406_431.png" alt="20180119173406_431.png" /></p>
+(String), B80813584601004194817(String), 测试(String), 1(Integer), 测试摘要(String), 2020-02-01 15:00:24.212(Timestamp), 2020-02-01 15:00:24.212(Timestamp)
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.BlogMapper.addBlog - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==>  Preparing: insert into l_blog_tag (blog_id,tag_id) values (?,?) 
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==> Parameters: B80813584601004194816(String), 2(Integer)
+2020-02-01 [http-nio-8081-exec-8] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-11] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-11] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-11] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-11] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-11] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-11] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-11] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-11] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-11] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: B80813584601004194817, 测试
+2020-02-01 [http-nio-8081-exec-11] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 6
+2020-02-01 [http-nio-8081-exec-12] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-12] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-12] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-12] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogMapper.addBlog - ==>  Preparing: INSERT INTO t_blog ( blog_id, user_id, user_nickname, title, content, content_html, category_id, category_name, is_hide, summary, create_time, update_time ) values (?,?,?,?,?,?,?, ?,?,?,?,?) 
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogMapper.addBlog - ==> Parameters: B80813584604270197760(String), 1(Integer), Conrad(String), 1(String), 1(String), <p>1</p>
+(String), 1(String), 娱乐(String), 2(Integer), 12(String), 2020-02-01 15:03:43.553(Timestamp), 2020-02-01 15:03:43.553(Timestamp)
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogMapper.addBlog - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==>  Preparing: insert into l_blog_tag (blog_id,tag_id) values (?,?) 
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==> Parameters: B80813584604270197760(String), 2(Integer)
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==>  Preparing: insert into l_blog_tag (blog_id,tag_id) values (?,?) 
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - ==> Parameters: B80813584604270197760(String), 3(Integer)
+2020-02-01 [http-nio-8081-exec-16] DEBUG com.iblog.mapper.BlogTagMapper.addBlogTag - <==    Updates: 1
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-18] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-18] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-17] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: B80813584601004194817, 测试
+2020-02-01 [http-nio-8081-exec-17] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 6
+2020-02-01 [http-nio-8081-exec-22] DEBUG com.iblog.mapper.TagMapper.queryTags - ==>  Preparing: SELECT tag_id,tag_name from t_tag 
+2020-02-01 [http-nio-8081-exec-22] DEBUG com.iblog.mapper.TagMapper.queryTags - ==> Parameters: 
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==>  Preparing: SELECT category_id,category_name FROM t_category WHERE 1=1 and user_id = ? 
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - ==> Parameters: 1(Integer)
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==    Columns: tag_id, tag_name
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 1, Java
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 2, Spring
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 3, Hibernate
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==    Columns: category_id, category_name
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 1, 娱乐
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 4, Maven
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 2, 旅游
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 5, Html
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 3, 个人
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 6, JavaScript
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 7, Vue
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 4, 生活
+2020-02-01 [http-nio-8081-exec-22] TRACE com.iblog.mapper.TagMapper.queryTags - <==        Row: 8, Css
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: 5, 工作
+2020-02-01 [http-nio-8081-exec-22] DEBUG com.iblog.mapper.TagMapper.queryTags - <==      Total: 8
+2020-02-01 [http-nio-8081-exec-21] TRACE com.iblog.mapper.CategoryMapper.queryCategory - <==        Row: B80813584601004194817, 测试
+2020-02-01 [http-nio-8081-exec-21] DEBUG com.iblog.mapper.CategoryMapper.queryCategory - <==      Total: 6
+2020-02-01 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-01 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

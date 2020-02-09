@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iblog.mapper.BlogMapper">
+    <insert id="addBlog">
+        INSERT INTO t_blog (
+            blog_id,
+            user_id,
+            user_nickname,
+            title,
+            content,
+            content_html,
+            category_id,
+            category_name,
+            is_hide,
+            summary,
+            create_time,
+            update_time
+        )
+        values (#{blogId},#{userId},#{userNickname},#{title},#{content},#{contentHtml},#{categoryId},
+              #{categoryName},#{isHide},#{summary},#{createTime},#{updateTime})
+    </insert>
+
     <select id="findBlogs" resultMap="blogResultMap">
         SELECT
             *
@@ -33,12 +52,17 @@
         <result property="userNickname" column="user_nickname"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
+        <result property="contentHtml" column="content_html"/>
+        <result property="tags" column="tags"/>
         <result property="isHide" column="is_hide"/>
         <result property="likeNum" column="like_num"/>
+        <result property="viewNum" column="view_num"/>
+        <result property="summary" column="summary"/>
         <result property="commentNum" column="comment_num"/>
         <result property="blogStatus" column="blog_status"/>
         <result property="blogStatus" column="blog_status"/>
-        <result property="operateTime" column="operate_time"/>
+        <result property="createTime" column="create_time"/>
         <result property="checkTime" column="check_time"/>
+        <result property="updateTime" column="update_time"/>
     </resultMap>
 </mapper>

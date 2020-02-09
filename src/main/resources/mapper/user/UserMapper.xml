@@ -12,5 +12,8 @@
         <if test="phone != null and phone != ''">
             and phone = #{phone}
         </if>
+        <if test="password != null and password != ''">
+            and password = #{password}
+        </if>
     </select>
 </mapper>

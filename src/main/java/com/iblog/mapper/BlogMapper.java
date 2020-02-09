@@ -32,4 +32,6 @@ public interface BlogMapper {
     * @Date: 2020/1/28
     */
     List<Blog> findCategoryBlogs(@Param("categoryId") String categoryId);
+
+    int addBlog(Blog blog);
 }

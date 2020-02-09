@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iblog.mapper.TagMapper">
+    <select id="queryTags" resultMap="tagMap">
+        SELECT tag_id,tag_name from t_tag
+    </select>
+
+    <resultMap id="tagMap" type="com.iblog.entity.Tag">
+        <id column="tag_id" property="tagId"/>
+        <result column="tag_name" property="tagName"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+</mapper>

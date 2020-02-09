@@ -8,4 +8,6 @@ public interface BlogService {
     List<Blog> findBlogs(Integer userId);
 
     List<Blog> findCategoryBlogs(String categoryId);
+
+    int addBlog(Blog blog);
 }
