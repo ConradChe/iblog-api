@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface CategoryMapper {
 
-    List<Category> queryCategory(@Param("userId") Integer userId);
+    List<Category> queryCategory(@Param("userId") Long userId);
 
     int addCategory(Category category);
 }

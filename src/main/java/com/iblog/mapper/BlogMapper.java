@@ -22,7 +22,7 @@ public interface BlogMapper {
     * @Author: cgq
     * @Date: 2020/1/28
     */
-    List<Blog> findBlogs(@Param("userId") Integer userId);
+    List<Blog> findBlogs(@Param("userId") Integer userId,@Param("blogId") String blogId);
 
     /*
     * @Description:  通过分类查询博客

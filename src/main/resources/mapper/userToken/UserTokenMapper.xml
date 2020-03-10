@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iblog.mapper.UserTokenMapper">
+    <insert id="insertUserToken">
+        insert into t_user_token(user_id,token,expire_time,update_time,create_time)
+        values (#{userId},#{token},#{expireTime},#{updateTime},#{createTime})
+    </insert>
+
+    <update id="updateUserToken">
+        update t_user_token set token = #{token},expire_time = #{expireTime},update_time = #{updateTime}
+        where user_id = #{userId}
+    </update>
+
+    <select id="queryUserToken" resultMap="UserTokenMap">
+        select * from t_user_token
+        where user_id = #{userId}
+    </select>
+
+    <resultMap id="UserTokenMap" type="com.iblog.entity.UserToken">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="token" column="token"/>
+        <result property="expireTime" column="expire_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+</mapper>

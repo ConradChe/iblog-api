@@ -20,7 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
     @Override
-    public List<Category> queryCategory(Integer userId) {
+    public List<Category> queryCategory(Long userId) {
         return categoryMapper.queryCategory(userId);
     }
 

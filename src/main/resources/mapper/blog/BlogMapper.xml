@@ -29,6 +29,10 @@
         <if test="userId != null">
             and user_id = #{userId}
         </if>
+        <if test="blogId != null">
+            and blog_id = #{blogId}
+        </if>
+        order by create_time desc
     </select>
 
     <select id="findCategoryBlogs" resultMap="blogResultMap">

@@ -1,5 +1,6 @@
 package com.iblog.service.impl;
 
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.iblog.entity.User;
 import com.iblog.mapper.UserMapper;
 import com.iblog.service.UserService;
@@ -15,7 +16,7 @@ import java.util.List;
  * @create: 2020-01-28 13:31
  **/
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;

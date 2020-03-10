@@ -2,18 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iblog.mapper.UserMapper">
     <insert id="addUser">
-        INSERT INTO t_user (phone, PASSWORD, nickname)
-        VALUES (#{phone},#{password},#{nickname})
+        INSERT INTO t_user (phone, PASSWORD, nickname,salt,last_login_time,create_time,update_time)
+        VALUES (#{phone},#{password},#{nickname},#{salt},#{lastLoginTime},#{createTime},#{updateTime})
     </insert>
 
-    <select id="queryUser" resultType="com.iblog.entity.User">
+    <select id="queryUser" resultMap="UserMap">
         select * from t_user
         where 1=1
         <if test="phone != null and phone != ''">
-            and phone = #{phone}
+            and phone = '${phone}'
         </if>
-        <if test="password != null and password != ''">
-            and password = #{password}
+        <if test="userId != null and userId != ''">
+            and user_id = '${userId}'
         </if>
     </select>
+
+    <resultMap id="UserMap" type="com.iblog.entity.User">
+        <id column="user_id" property="userId"/>
+        <result column="phone" property="phone"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="salt" property="salt"/>
+        <result column="name" property="name"/>
+        <result column="head_img" property="headImg"/>
+        <result column="gender" property="gender"/>
+        <result column="birthday" property="birthday"/>
+        <result column="hobby" property="hobby"/>
+        <result column="address" property="address"/>
+        <result column="last_login_time" property="lastLoginTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
 </mapper>

@@ -27,8 +27,8 @@ public class BlogServiceImpl implements BlogService {
     private BlogTagMapper blogTagMapper;
 
     @Override
-    public List<Blog> findBlogs(Integer userId) {
-        List<Blog> blogs = blogMapper.findBlogs(userId);
+    public List<Blog> findBlogs(Integer userId,String blogId) {
+        List<Blog> blogs = blogMapper.findBlogs(userId,blogId);
         return blogs;
     }
 
