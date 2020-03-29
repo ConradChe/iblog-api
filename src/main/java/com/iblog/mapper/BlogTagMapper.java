@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface BlogTagMapper {
 
     int addBlogTag(BlogTag blogTag);
+
+    void deleteTagOfBlog(String blogId);
 }

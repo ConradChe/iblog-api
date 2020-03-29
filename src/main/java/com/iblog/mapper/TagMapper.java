@@ -9,4 +9,6 @@ import java.util.List;
 public interface TagMapper {
 
     List<Tag> queryTags();
+
+    List<Tag> queryTagOfBlog(String blogId);
 }

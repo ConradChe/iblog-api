@@ -34,4 +34,10 @@ public interface BlogMapper {
     List<Blog> findCategoryBlogs(@Param("categoryId") String categoryId);
 
     int addBlog(Blog blog);
+
+    List<Blog> queryBlogOfUser(Long userId, String categoryId);
+
+    void deleteBlog(String blogId);
+
+    int updateBlog(Blog blog);
 }

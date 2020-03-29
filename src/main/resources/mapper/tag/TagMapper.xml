@@ -5,6 +5,17 @@
         SELECT tag_id,tag_name from t_tag
     </select>
 
+    <select id="queryTagOfBlog" resultMap="tagMap">
+        SELECT
+            t.tag_name,t.tag_id
+        FROM
+            l_blog_tag bl
+        INNER JOIN t_tag t ON bl.tag_id = t.tag_id
+        INNER JOIN t_blog b ON bl.blog_id = b.blog_id
+        WHERE
+            b.blog_id = #{blogId}
+    </select>
+
     <resultMap id="tagMap" type="com.iblog.entity.Tag">
         <id column="tag_id" property="tagId"/>
         <result column="tag_name" property="tagName"/>

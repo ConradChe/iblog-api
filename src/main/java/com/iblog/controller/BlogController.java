@@ -1,15 +1,21 @@
 package com.iblog.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.iblog.annotation.LoginPass;
 import com.iblog.annotation.LoginRequired;
 import com.iblog.common.ApiResponse;
 import com.iblog.entity.Blog;
 import com.iblog.entity.Category;
+import com.iblog.entity.Tag;
 import com.iblog.entity.User;
 import com.iblog.service.BlogService;
 import com.iblog.service.CategoryService;
+import com.iblog.service.TagService;
+import com.iblog.service.UserService;
 import com.iblog.util.IdCreateUtil;
 import com.iblog.util.StringUtil;
+import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,13 +37,57 @@ public class BlogController {
     private BlogService blogService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private TagService tagService;
 
     @LoginPass
     @GetMapping("/findBlogs")
     public ApiResponse findBlogs(@RequestParam(value = "userId", required = false) Integer userId,
-                                 @RequestParam(value = "blogId", required = false) String blogId) {
+                                 @RequestParam(value = "blogId", required = false) String blogId,
+                                 @RequestParam(value = "page",required = false,defaultValue = "0")Integer page,
+                                 @RequestParam(value = "limit",required = false,defaultValue = "10")Integer limit) {
 
+        PageHelper.startPage(page,limit);
         List<Blog> blogs = blogService.findBlogs(userId,blogId);
+        PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
+        List<Blog> list = pageInfo.getList();
+        list.stream().forEach(blog -> {
+            Long blogUserId = blog.getUserId();
+            String blogId1 = blog.getBlogId();
+            //通过id查询作者
+            User user = userService.selectById(blogUserId);
+            List<Tag> tags = tagService.queryTagOfBlog(blogId1);
+            blog.setUser(user);
+            blog.setTagList(tags);
+        });
+        long total = pageInfo.getTotal();
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setCode(HttpStatus.SC_OK);
+        apiResponse.setData(list);
+        apiResponse.setTotal(total);
+        return apiResponse;
+    }
+
+    /*
+     * @Description:  查询用户的文章
+     * @Param: [blogStatus, request]
+     * @return: com.iblog.common.ApiResponse
+     * @Author: cgq
+     * @Date: 2020/3/21
+     */
+    @GetMapping("/queryBlogOfUser")
+    public ApiResponse queryBlogOfUser(@RequestParam(value = "categoryId")String categoryId,
+                                       HttpServletRequest request){
+        User user = (User) request.getAttribute("user");
+        Long userId = user.getUserId();
+        List<Blog> blogs = blogService.queryBlogOfUser(userId,categoryId);
+        blogs.stream().forEach(blog -> {
+            String blogId1 = blog.getBlogId();
+            List<Tag> tags = tagService.queryTagOfBlog(blogId1);
+            blog.setTagList(tags);
+        });
         return ApiResponse.buildSuccessResponse(blogs);
     }
 
@@ -59,7 +109,7 @@ public class BlogController {
         String blogId = IdCreateUtil.getCode("B");
         Date date = new Date();
         Long userId = user.getUserId();
-        String userNickName = "Conrad";
+        String userNickName = user.getNickname();
         blog.setBlogId(blogId);
         blog.setUserId(userId);
         blog.setUserNickname(userNickName);
@@ -73,7 +123,6 @@ public class BlogController {
             category.setCategoryId(categoryId);
             category.setCategoryName(categoryName);
             category.setUserId(userId);
-            category.setCreateTime(date);
             categoryService.addCategory(category);
         }
         int i = blogService.addBlog(blog);
@@ -83,5 +132,51 @@ public class BlogController {
             return ApiResponse.buildErrorMessage("保存失败");
         }
 
+    }
+
+    @PostMapping("/updateBlog")
+    public ApiResponse updateBlog(@RequestBody Blog blog, HttpServletRequest request){
+        //获取参数
+        User user = (User) request.getAttribute("user");
+        String categoryId = blog.getCategoryId();
+        String categoryName = blog.getCategoryName();
+
+        Long userId = user.getUserId();
+        String userNickName = user.getNickname();
+        blog.setUserId(userId);
+        blog.setUserNickname(userNickName);
+
+        if (StringUtil.isBlank(categoryId)) {
+            categoryId = IdCreateUtil.getCode("B");
+            blog.setCategoryId(categoryId);
+            Category category = new Category();
+            category.setCategoryId(categoryId);
+            category.setCategoryName(categoryName);
+            category.setUserId(userId);
+            categoryService.addCategory(category);
+        }
+
+        int i = blogService.updateBlog(blog);
+        if (i > 0) {
+            return ApiResponse.buildSuccessMessage("修改成功");
+        } else {
+            return ApiResponse.buildErrorMessage("修改失败");
+        }
+    }
+
+    @PostMapping("/hideBlog")
+    public ApiResponse hideBlog(@RequestBody Blog blog){
+        int result = blogService.hideBlog(blog);
+        if (result>0){
+            return ApiResponse.buildSuccessMessage("修改成功");
+        }else {
+            return ApiResponse.buildErrorMessage("修改失败");
+        }
+    }
+
+    @DeleteMapping("/deleteBlog/{blogId}")
+    public ApiResponse deleteBlog(@PathVariable("blogId") String blogId){
+        blogService.deleteBlog(blogId);
+        return ApiResponse.buildSuccessMessage("删除成功");
     }
 }

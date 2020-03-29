@@ -5,4 +5,8 @@
         insert into l_blog_tag (blog_id,tag_id)
         values (#{blogId},#{tagId})
     </insert>
+
+    <delete id="deleteTagOfBlog">
+        delete from l_blog_tag where blog_id = #{blogId}
+    </delete>
 </mapper>

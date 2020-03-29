@@ -131,11 +131,27 @@ public class UserController {
         List<User> users = userService.queryUser(user);
         return ApiResponse.buildSuccessResponse(users);
     }
+
     @PostMapping("/updateUser")
     public ApiResponse updateUser(@RequestBody User user, HttpServletRequest request){
         User user1 = (User) request.getAttribute("user");
         user.setUserId(user1.getUserId());
         userService.updateById(user);
+        return ApiResponse.buildSuccessMessage("修改成功");
+    }
+
+    @PostMapping("/changePass")
+    public ApiResponse changePass(@RequestBody Map map,HttpServletRequest request){
+        User user = (User) request.getAttribute("user");
+        String prePass = StringUtil.getString(map, "prePass");
+        String newPass = StringUtil.getString(map, "newPass");
+        if (!user.getPassword().equals(new Sha256Hash(prePass,user.getSalt()).toHex())){
+            return ApiResponse.buildErrorMessage("原密码不正确");
+        }
+        User user1 = new User();
+        user1.setUserId(user.getUserId());
+        user1.setPassword(new Sha256Hash(newPass,user.getSalt()).toHex());
+        userService.updateById(user1);
         return ApiResponse.buildSuccessMessage("修改成功");
     }
 

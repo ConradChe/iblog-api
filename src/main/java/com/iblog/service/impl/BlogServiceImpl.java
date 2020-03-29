@@ -2,10 +2,10 @@ package com.iblog.service.impl;
 
 import com.iblog.entity.Blog;
 import com.iblog.entity.BlogTag;
-import com.iblog.entity.Tag;
 import com.iblog.mapper.BlogMapper;
 import com.iblog.mapper.BlogTagMapper;
 import com.iblog.service.BlogService;
+import com.iblog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +25,8 @@ public class BlogServiceImpl implements BlogService {
     private BlogMapper blogMapper;
     @Autowired
     private BlogTagMapper blogTagMapper;
+    @Autowired
+    private CommentService commentService;
 
     @Override
     public List<Blog> findBlogs(Integer userId,String blogId) {
@@ -44,13 +46,53 @@ public class BlogServiceImpl implements BlogService {
         BlogTag blogTag = new BlogTag();
         blogTag.setBlogId(blogId);
         int i = blogMapper.addBlog(blog);
-        List<Tag> tagList = blog.getTagList();
-        for (Tag tag :
+        List<Integer> tagList = blog.getTagIds();
+        for (Integer tag :
                 tagList) {
-            Integer tagId = tag.getTagId();
-            blogTag.setTagId(tagId);
+            blogTag.setTagId(tag);
             blogTagMapper.addBlogTag(blogTag);
         }
         return i;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public int updateBlog(Blog blog) {
+        String blogId = blog.getBlogId();
+        //删除博客标签关联
+        blogTagMapper.deleteTagOfBlog(blogId);
+        //新增博客关联
+        BlogTag blogTag = new BlogTag();
+        blogTag.setBlogId(blogId);
+        int i = blogMapper.updateBlog(blog);
+        List<Integer> tagList = blog.getTagIds();
+        for (Integer tag :
+                tagList) {
+            blogTag.setTagId(tag);
+            blogTagMapper.addBlogTag(blogTag);
+        }
+        return i;
+    }
+
+    @Override
+    public List<Blog> queryBlogOfUser(Long userId, String categoryId) {
+        List<Blog> blogs = blogMapper.queryBlogOfUser(userId,categoryId);
+        return blogs;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteBlog(String blogId) {
+        //删除博客
+        blogMapper.deleteBlog(blogId);
+        //删除博客标签关联
+        blogTagMapper.deleteTagOfBlog(blogId);
+        //删除博客评论关联
+        commentService.deleteComment(blogId);
+    }
+
+    @Override
+    public int hideBlog(Blog blog) {
+        return blogMapper.updateBlog(blog);
     }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 public interface TagService {
 
     List<Tag> queryTags();
+
+    List<Tag> queryTagOfBlog(String blogId);
 }

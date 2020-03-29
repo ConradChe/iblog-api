@@ -20,6 +20,7 @@ public class Blog {
     private String content;
     private String contentHtml;
     private List<Tag> tagList;
+    private List<Integer> tagIds;
     private String tags;
     private String categoryId;
     private String categoryName;
@@ -32,5 +33,6 @@ public class Blog {
     private Date createTime;
     private Date checkTime;
     private Date updateTime;
+    private User user;
 
 }

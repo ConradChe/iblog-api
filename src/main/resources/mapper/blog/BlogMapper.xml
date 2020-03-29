@@ -20,34 +20,79 @@
               #{categoryName},#{isHide},#{summary},#{createTime},#{updateTime})
     </insert>
 
+    <update id="updateBlog">
+        update t_blog
+        set
+        <if test="title != null">
+                title = #{title},
+        </if>
+        <if test="content != null">
+            content = #{content},
+        </if>
+        <if test="contentHtml != null">
+            content_html = #{contentHtml},
+        </if>
+        <if test="categoryId != null">
+            category_id = #{categoryId},
+        </if>
+        <if test="categoryName != null">
+            category_name = #{categoryName},
+        </if>
+        <if test="isHide != null">
+            is_hide = #{isHide},
+        </if>
+        <if test="summary != null">
+            summary = #{summary},
+        </if>
+            blog_id = #{blogId}
+        where
+            blog_id = #{blogId}
+    </update>
+
+    <delete id="deleteBlog">
+        delete from t_blog where blog_id = #{blogId}
+    </delete>
+
     <select id="findBlogs" resultMap="blogResultMap">
         SELECT
-            *
+        *
         FROM
-            t_blog
+        t_blog
         WHERE 1=1
-        <if test="userId != null">
-            and user_id = #{userId}
-        </if>
         <if test="blogId != null">
             and blog_id = #{blogId}
+        </if>
+        <if test="blogId == null">
+            and is_hide = 1
         </if>
         order by create_time desc
     </select>
 
     <select id="findCategoryBlogs" resultMap="blogResultMap">
         SELECT
-            b.*
+        b.*
         FROM
-            t_blog b,
-            t_category c,
-            l_blog_category bc
+        t_blog b,
+        t_category c,
+        l_blog_category bc
         WHERE
-            b.blog_id = bc.blog_id
+        b.blog_id = bc.blog_id
         AND c.category_id = bc.category_id
         <if test="categoryId != null and categoryId != ''">
             and c.category_id = #{categoryId}
         </if>
+    </select>
+
+    <select id="queryBlogOfUser" resultMap="blogResultMap">
+        select * from t_blog
+        where 1=1
+        <if test="userId != null">
+            and user_id = #{userId}
+        </if>
+        <if test="categoryId != null and categoryId != 'null'">
+            and category_id = #{categoryId}
+        </if>
+        order by create_time desc
     </select>
 
     <resultMap id="blogResultMap" type="com.iblog.entity.Blog">

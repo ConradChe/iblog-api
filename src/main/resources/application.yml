@@ -78,3 +78,10 @@ server:
     uri-encoding: UTF-8
     max-threads: 1000
     min-spare-threads: 30
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

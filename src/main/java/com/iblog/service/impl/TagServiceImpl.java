@@ -23,4 +23,9 @@ public class TagServiceImpl implements TagService {
     public List<Tag> queryTags() {
         return tagMapper.queryTags();
     }
+
+    @Override
+    public List<Tag> queryTagOfBlog(String blogId) {
+        return tagMapper.queryTagOfBlog(blogId);
+    }
 }
