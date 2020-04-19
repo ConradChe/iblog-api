@@ -29,4 +29,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public List<User> queryUser(User user) {
         return userMapper.queryUser(user);
     }
+
+    @Override
+    public User queryUserNameById(Long userId) {
+        return userMapper.queryUserNameById(userId);
+    }
 }

@@ -16,6 +16,10 @@
             and user_id = '${userId}'
         </if>
     </select>
+    <select id="queryUserNameById" resultMap="UserMap">
+        select user_id,nickname,head_img from t_user
+        where user_id = #{userId}
+    </select>
 
     <resultMap id="UserMap" type="com.iblog.entity.User">
         <id column="user_id" property="userId"/>

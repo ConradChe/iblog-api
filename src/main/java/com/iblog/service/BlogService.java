@@ -5,7 +5,7 @@ import com.iblog.entity.Blog;
 import java.util.List;
 
 public interface BlogService {
-    List<Blog> findBlogs(Integer userId,String blogId);
+    List<Blog> findBlogs(String keyword);
 
     List<Blog> findCategoryBlogs(String categoryId);
 
@@ -18,4 +18,10 @@ public interface BlogService {
     void deleteBlog(String blogId);
 
     int hideBlog(Blog blog);
+
+    List<String> getAllBlogId();
+
+    Blog getBlogById(String blogId);
+
+    int updateCommentNum(Blog blog);
 }

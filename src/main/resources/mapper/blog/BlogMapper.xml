@@ -44,7 +44,22 @@
         <if test="summary != null">
             summary = #{summary},
         </if>
+        <if test="viewNum != null">
+            view_num = #{viewNum},
+        </if>
+        <if test="likeNum != null">
+            like_num = #{likeNum},
+        </if>
+        <if test="commentNum != null">
+            comment_num = #{commentNum},
+        </if>
             blog_id = #{blogId}
+        where
+            blog_id = #{blogId}
+    </update>
+    <update id="updateCommentNum">
+        update t_blog
+        set comment_num = comment_num + 1
         where
             blog_id = #{blogId}
     </update>
@@ -53,17 +68,16 @@
         delete from t_blog where blog_id = #{blogId}
     </delete>
 
+    <!--首页查询文章基本信息-->
     <select id="findBlogs" resultMap="blogResultMap">
         SELECT
-        *
+        blog_id,user_id,title,summary,like_num,comment_num,view_num,content
         FROM
         t_blog
-        WHERE 1=1
-        <if test="blogId != null">
-            and blog_id = #{blogId}
-        </if>
-        <if test="blogId == null">
-            and is_hide = 1
+        WHERE
+        is_hide = 1
+        <if test="keyword != null and keyword != ''">
+            and concat(title,summary) like '%${keyword}%'
         </if>
         order by create_time desc
     </select>
@@ -93,6 +107,16 @@
             and category_id = #{categoryId}
         </if>
         order by create_time desc
+    </select>
+
+    <select id="getAllBlogId" resultType="java.lang.String">
+        select blog_id as blogId from t_blog
+    </select>
+
+    <select id="getBlogById" resultMap="blogResultMap">
+        select
+        blog_id,comment_num,view_num,like_num
+        from t_blog where blog_id = #{blogId}
     </select>
 
     <resultMap id="blogResultMap" type="com.iblog.entity.Blog">

@@ -4,17 +4,16 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.iblog.annotation.LoginPass;
 import com.iblog.annotation.LoginRequired;
+import com.iblog.annotation.PageView;
 import com.iblog.common.ApiResponse;
 import com.iblog.entity.Blog;
 import com.iblog.entity.Category;
 import com.iblog.entity.Tag;
 import com.iblog.entity.User;
-import com.iblog.service.BlogService;
-import com.iblog.service.CategoryService;
-import com.iblog.service.TagService;
-import com.iblog.service.UserService;
+import com.iblog.service.*;
 import com.iblog.util.IdCreateUtil;
 import com.iblog.util.StringUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +30,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("/blog")
+@Slf4j
 public class BlogController {
 
     @Autowired
@@ -41,16 +41,17 @@ public class BlogController {
     private UserService userService;
     @Autowired
     private TagService tagService;
+    @Autowired
+    private RedisService redisService;
 
     @LoginPass
     @GetMapping("/findBlogs")
-    public ApiResponse findBlogs(@RequestParam(value = "userId", required = false) Integer userId,
-                                 @RequestParam(value = "blogId", required = false) String blogId,
+    public ApiResponse findBlogs(@RequestParam(value = "keyword", required = false) String keyword,
                                  @RequestParam(value = "page",required = false,defaultValue = "0")Integer page,
                                  @RequestParam(value = "limit",required = false,defaultValue = "10")Integer limit) {
 
         PageHelper.startPage(page,limit);
-        List<Blog> blogs = blogService.findBlogs(userId,blogId);
+        List<Blog> blogs = blogService.findBlogs(keyword);
         PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
         List<Blog> list = pageInfo.getList();
         list.stream().forEach(blog -> {
@@ -178,5 +179,16 @@ public class BlogController {
     public ApiResponse deleteBlog(@PathVariable("blogId") String blogId){
         blogService.deleteBlog(blogId);
         return ApiResponse.buildSuccessMessage("删除成功");
+    }
+
+    @PageView
+    @GetMapping("/setBlogView")
+    @LoginPass
+    public ApiResponse setBlogView(@RequestParam(value = "blogId")String blogId){
+        log.info("blogId={}",blogId);
+        String key = "blogId_"+blogId;
+        Long view = redisService.size(key);
+        log.info("redis 缓存中浏览数：{}", view);
+        return ApiResponse.buildSuccessMessage("success");
     }
 }

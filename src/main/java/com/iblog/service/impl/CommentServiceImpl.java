@@ -7,6 +7,8 @@ import com.iblog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @program: iblog-api
  * @description: 评论Service
@@ -21,5 +23,15 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     @Override
     public void deleteComment(String blogId) {
         commentMapper.deleteComment(blogId);
+    }
+
+    @Override
+    public List<Comment> queryCommentByBlogId(String blogId) {
+        return commentMapper.queryCommentByBlogId(blogId);
+    }
+
+    @Override
+    public List<Comment> queryCommentByParentId(Long parentId) {
+        return commentMapper.queryCommentByParentId(parentId);
     }
 }

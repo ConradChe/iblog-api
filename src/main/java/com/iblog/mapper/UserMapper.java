@@ -12,4 +12,6 @@ public interface UserMapper extends BaseMapper<User> {
     int addUser(User user);
 
     List<User> queryUser(User user);
+
+    User queryUserNameById(Long userId);
 }

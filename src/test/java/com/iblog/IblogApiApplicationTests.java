@@ -3,6 +3,7 @@ package com.iblog;
 import com.alibaba.fastjson.JSON;
 import com.iblog.entity.User;
 import com.iblog.service.RedisService;
+import com.iblog.util.IpUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,6 +27,12 @@ class IblogApiApplicationTests {
         String string = redisService.getString("307af227050df19230ed10d99a33380e");
         User jsonObject = JSON.parseObject(string, User.class);
         System.out.println(jsonObject.getPassword());
+    }
+
+    @Test
+    void getIpTest(){
+        String ipAddr = IpUtils.getIpAddr();
+        System.out.println(ipAddr);
     }
 
 }

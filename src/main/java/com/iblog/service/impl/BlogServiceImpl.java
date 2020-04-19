@@ -29,8 +29,8 @@ public class BlogServiceImpl implements BlogService {
     private CommentService commentService;
 
     @Override
-    public List<Blog> findBlogs(Integer userId,String blogId) {
-        List<Blog> blogs = blogMapper.findBlogs(userId,blogId);
+    public List<Blog> findBlogs(String keyword) {
+        List<Blog> blogs = blogMapper.findBlogs(keyword);
         return blogs;
     }
 
@@ -94,5 +94,20 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public int hideBlog(Blog blog) {
         return blogMapper.updateBlog(blog);
+    }
+
+    @Override
+    public List<String> getAllBlogId() {
+        return blogMapper.getAllBlogId();
+    }
+
+    @Override
+    public Blog getBlogById(String blogId) {
+        return blogMapper.getBlogById(blogId);
+    }
+
+    @Override
+    public int updateCommentNum(Blog blog) {
+        return blogMapper.updateCommentNum(blog);
     }
 }

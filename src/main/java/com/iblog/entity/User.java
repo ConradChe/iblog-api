@@ -27,12 +27,11 @@ public class User {
     private String name;
     private String headImg;
     private char gender;
+    private Integer role;
     private String birthday;
     private String hobby;
     private String address;
     private Date lastLoginTime;
     private Date createTime;
     private Date updateTime;
-
-
 }

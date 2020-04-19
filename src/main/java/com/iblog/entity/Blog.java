@@ -25,10 +25,10 @@ public class Blog {
     private String categoryId;
     private String categoryName;
     private String summary;
-    private Integer viewNum;
+    private Long viewNum;
     private Integer isHide;
-    private Integer likeNum;
-    private Integer commentNum;
+    private Long likeNum;
+    private Long commentNum;
     private Integer blogStatus;
     private Date createTime;
     private Date checkTime;

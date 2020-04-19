@@ -22,7 +22,7 @@ public interface BlogMapper {
     * @Author: cgq
     * @Date: 2020/1/28
     */
-    List<Blog> findBlogs(@Param("userId") Integer userId,@Param("blogId") String blogId);
+    List<Blog> findBlogs(@Param("keyword") String keyword);
 
     /*
     * @Description:  通过分类查询博客
@@ -40,4 +40,10 @@ public interface BlogMapper {
     void deleteBlog(String blogId);
 
     int updateBlog(Blog blog);
+
+    List<String> getAllBlogId();
+
+    Blog getBlogById(String blogId);
+
+    int updateCommentNum(Blog blog);
 }
