@@ -53,6 +53,15 @@
         <if test="commentNum != null">
             comment_num = #{commentNum},
         </if>
+        <if test="blogStatus != null">
+            blog_status = #{blogStatus},
+        </if>
+        <if test="checkComment != null">
+            check_comment = #{checkComment},
+        </if>
+        <if test="checkTime != null">
+            check_time = #{checkTime},
+        </if>
             blog_id = #{blogId}
         where
             blog_id = #{blogId}
@@ -119,6 +128,21 @@
         from t_blog where blog_id = #{blogId}
     </select>
 
+    <select id="queryBlogByStatus" resultMap="blogResultMap">
+        select
+        blog_id,user_id,title,summary
+        from t_blog
+        where blog_status = #{blogStatus}
+    </select>
+
+    <select id="queryBlogInfo" resultMap="blogResultMap">
+      select
+      blog_id,title,content,blog_status
+      from t_blog
+      where
+      blog_id = #{blogId}
+    </select>
+
     <resultMap id="blogResultMap" type="com.iblog.entity.Blog">
         <id property="blogId" column="blog_id"/>
         <result property="userId" column="user_id"/>
@@ -133,7 +157,7 @@
         <result property="summary" column="summary"/>
         <result property="commentNum" column="comment_num"/>
         <result property="blogStatus" column="blog_status"/>
-        <result property="blogStatus" column="blog_status"/>
+        <result property="checkComment" column="check_comment"/>
         <result property="createTime" column="create_time"/>
         <result property="checkTime" column="check_time"/>
         <result property="updateTime" column="update_time"/>

@@ -110,4 +110,19 @@ public class BlogServiceImpl implements BlogService {
     public int updateCommentNum(Blog blog) {
         return blogMapper.updateCommentNum(blog);
     }
+
+    @Override
+    public List<Blog> queryBlogByStatus(Integer blogStatus) {
+        return blogMapper.queryBlogByStatus(blogStatus);
+    }
+
+    @Override
+    public Blog queryBlogInfo(String blogId) {
+        return blogMapper.queryBlogInfo(blogId);
+    }
+
+    @Override
+    public int updateBlogStatus(Blog blog) {
+        return blogMapper.updateBlog(blog);
+    }
 }

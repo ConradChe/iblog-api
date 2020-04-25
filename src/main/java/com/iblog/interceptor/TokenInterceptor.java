@@ -2,6 +2,7 @@ package com.iblog.interceptor;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
+import com.iblog.annotation.AdminOperate;
 import com.iblog.annotation.LoginPass;
 import com.iblog.common.ApiResponse;
 import com.iblog.entity.User;
@@ -40,6 +41,7 @@ public class TokenInterceptor implements HandlerInterceptor {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
         LoginPass annotation = method.getAnnotation(LoginPass.class);
+        AdminOperate adminOperate = method.getAnnotation(AdminOperate.class);
 
         //判断是否需要拦截的方法
         if (annotation != null) {
@@ -61,6 +63,12 @@ public class TokenInterceptor implements HandlerInterceptor {
         //判断token是否正确
         if (user == null) {
             apiResponse = new ApiResponse(HttpStatus.SC_UNAUTHORIZED, "Token不正确");
+            String json = new Gson().toJson(apiResponse);
+            response.getWriter().print(json);
+            return false;
+        }
+        if (adminOperate != null && user.getRole()!=1){
+            apiResponse = new ApiResponse(5001, "此操作需要管理员权限");
             String json = new Gson().toJson(apiResponse);
             response.getWriter().print(json);
             return false;

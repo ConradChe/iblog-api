@@ -2,6 +2,7 @@ package com.iblog.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.iblog.annotation.AdminOperate;
 import com.iblog.annotation.LoginPass;
 import com.iblog.annotation.LoginRequired;
 import com.iblog.annotation.PageView;
@@ -190,5 +191,50 @@ public class BlogController {
         Long view = redisService.size(key);
         log.info("redis 缓存中浏览数：{}", view);
         return ApiResponse.buildSuccessMessage("success");
+    }
+
+    @AdminOperate
+    @GetMapping("/queryBlogByStatus")
+    public ApiResponse queryBlogByStatus(@RequestParam("blogStatus") Integer blogStatus,
+                                         @RequestParam(value = "page",required = false,defaultValue = "0")Integer page,
+                                         @RequestParam(value = "limit",required = false,defaultValue = "10")Integer limit){
+        PageHelper.startPage(page,limit);
+        List<Blog> blogs = blogService.queryBlogByStatus(blogStatus);
+        PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
+        List<Blog> list = pageInfo.getList();
+        list.stream().forEach(blog -> {
+            Long blogUserId = blog.getUserId();
+            String blogId = blog.getBlogId();
+            //通过id查询作者
+            User user = userService.selectById(blogUserId);
+            List<Tag> tags = tagService.queryTagOfBlog(blogId);
+            blog.setUser(user);
+            blog.setTagList(tags);
+        });
+        long total = pageInfo.getTotal();
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setCode(HttpStatus.SC_OK);
+        apiResponse.setData(list);
+        apiResponse.setTotal(total);
+        return apiResponse;
+    }
+
+    @AdminOperate
+    @GetMapping("/queryBlogInfo")
+    public ApiResponse queryBlogInfo(@RequestParam("blogId") String blogId){
+        Blog blog = blogService.queryBlogInfo(blogId);
+        return ApiResponse.buildSuccessResponse(blog);
+    }
+
+    @AdminOperate
+    @PostMapping("/updateBlogStatus")
+    public ApiResponse updateBlogStatus(@RequestBody Blog blog){
+        blog.setCheckTime(new Date());
+        int i = blogService.updateBlogStatus(blog);
+        if (i>0){
+            return ApiResponse.buildSuccessMessage("审核成功");
+        }else {
+            return ApiResponse.buildErrorMessage("审核失败");
+        }
     }
 }

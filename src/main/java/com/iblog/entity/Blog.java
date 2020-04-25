@@ -30,6 +30,7 @@ public class Blog {
     private Long likeNum;
     private Long commentNum;
     private Integer blogStatus;
+    private String checkComment;
     private Date createTime;
     private Date checkTime;
     private Date updateTime;

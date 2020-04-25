@@ -46,4 +46,8 @@ public interface BlogMapper {
     Blog getBlogById(String blogId);
 
     int updateCommentNum(Blog blog);
+
+    List<Blog> queryBlogByStatus(Integer blogStatus);
+
+    Blog queryBlogInfo(String blogId);
 }
