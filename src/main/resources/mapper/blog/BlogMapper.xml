@@ -47,9 +47,6 @@
         <if test="viewNum != null">
             view_num = #{viewNum},
         </if>
-        <if test="likeNum != null">
-            like_num = #{likeNum},
-        </if>
         <if test="commentNum != null">
             comment_num = #{commentNum},
         </if>
@@ -80,11 +77,12 @@
     <!--首页查询文章基本信息-->
     <select id="findBlogs" resultMap="blogResultMap">
         SELECT
-        blog_id,user_id,title,summary,like_num,comment_num,view_num,content
+        blog_id,user_id,title,summary,comment_num,view_num,content
         FROM
         t_blog
         WHERE
         is_hide = 1
+        and blog_status = 1
         <if test="keyword != null and keyword != ''">
             and concat(title,summary) like '%${keyword}%'
         </if>
@@ -124,7 +122,7 @@
 
     <select id="getBlogById" resultMap="blogResultMap">
         select
-        blog_id,comment_num,view_num,like_num
+        blog_id,comment_num,view_num
         from t_blog where blog_id = #{blogId}
     </select>
 

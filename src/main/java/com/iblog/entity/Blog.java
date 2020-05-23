@@ -27,7 +27,7 @@ public class Blog {
     private String summary;
     private Long viewNum;
     private Integer isHide;
-    private Long likeNum;
+    private Integer likeNum;
     private Long commentNum;
     private Integer blogStatus;
     private String checkComment;

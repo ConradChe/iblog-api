@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iblog.mapper.UpvoteMapper">
+    <insert id="insertUpvote">
+        insert into t_upvote(blog_id, user_id, create_time)
+        values (#{blogId},#{userId},#{createTime})
+    </insert>
+
+    <delete id="deleteUpvote">
+        delete from t_upvote
+        where
+        blog_id = #{blogId}
+        and user_id = #{userId}
+    </delete>
+
+    <select id="selectUpvoteById" resultType="java.lang.Long">
+        select upvote_id as upvoteId from t_upvote
+        where
+        blog_id = #{blogId}
+        and user_id = #{userId}
+    </select>
+
+    <select id="selectUpvoteCount" resultType="java.util.Map">
+        select
+            blog_id as blogId,
+            COUNT(upvote_id) as upvoteNum
+        from
+            t_upvote
+        group by
+            blog_id
+    </select>
+
+    <select id="selectUpvoteCountById" resultType="java.util.Map">
+        select
+            COUNT(upvote_id) as upvoteNum
+        from
+            t_upvote
+        where blog_id = #{blogId}
+    </select>
+</mapper>

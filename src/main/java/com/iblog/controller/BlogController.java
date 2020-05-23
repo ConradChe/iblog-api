@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: iblog-api
@@ -44,20 +45,30 @@ public class BlogController {
     private TagService tagService;
     @Autowired
     private RedisService redisService;
+    @Autowired
+    private UpvoteService upvoteService;
 
     @LoginPass
     @GetMapping("/findBlogs")
     public ApiResponse findBlogs(@RequestParam(value = "keyword", required = false) String keyword,
                                  @RequestParam(value = "page",required = false,defaultValue = "0")Integer page,
                                  @RequestParam(value = "limit",required = false,defaultValue = "10")Integer limit) {
-
         PageHelper.startPage(page,limit);
         List<Blog> blogs = blogService.findBlogs(keyword);
+        List<Map> maps = upvoteService.selectUpvoteCount();
         PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
         List<Blog> list = pageInfo.getList();
         list.stream().forEach(blog -> {
             Long blogUserId = blog.getUserId();
             String blogId1 = blog.getBlogId();
+            for (Map map :
+                    maps) {
+                String blogId = StringUtil.getString(map, "blogId");
+                if (blogId1.equals(blogId)){
+                    blog.setLikeNum(StringUtil.getInt(map,"upvoteNum"));
+                    break;
+                }
+            }
             //通过id查询作者
             User user = userService.selectById(blogUserId);
             List<Tag> tags = tagService.queryTagOfBlog(blogId1);
@@ -125,6 +136,7 @@ public class BlogController {
             category.setCategoryId(categoryId);
             category.setCategoryName(categoryName);
             category.setUserId(userId);
+            category.setCreateTime(date);
             categoryService.addCategory(category);
         }
         int i = blogService.addBlog(blog);
