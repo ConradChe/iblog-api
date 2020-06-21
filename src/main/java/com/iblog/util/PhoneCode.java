@@ -9,7 +9,9 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
- 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class PhoneCode {
 	
 	public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class PhoneCode {
 		 */
 		System.out.println(mobile);
 		if (mobile == null || mobile == "") {
-			System.out.println("手机号为空");
+			log.info("手机号为空");
 			return "";
 		}
 		/**
@@ -82,18 +84,18 @@ public class PhoneCode {
 			if (sendSmsResponse.getCode() != null
 					&& sendSmsResponse.getCode().equals("OK")) {
 				// 请求成功
-				System.out.println("获取验证码成功！！！");
+				log.info("获取验证码成功！！！");
 			} else {
 				//如果验证码出错，会输出错误码告诉你具体原因
-				 System.out.println(sendSmsResponse.getCode());
-				 System.out.println("获取验证码失败...");
+				log.info(sendSmsResponse.getCode());
+				log.info("获取验证码失败...");
 			}
 		} catch (ServerException e) {
 			e.printStackTrace();
-			return "由于系统维护，暂时无法注册！！！";
+			log.info("由于系统维护，暂时无法注册！！！");
 		} catch (ClientException e) {
 			e.printStackTrace();
-			return "由于系统维护，暂时无法注册！！！";
+			log.info("由于系统维护，暂时无法注册！！！");
 		}
 		return "true";
 	}
