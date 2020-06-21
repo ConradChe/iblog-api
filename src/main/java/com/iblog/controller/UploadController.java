@@ -39,6 +39,7 @@ public class UploadController {
             baseFolder.mkdirs();
         }
 
+        //图片回显路径
         StringBuffer url = new StringBuffer();
         url.append(request.getScheme())
                 .append("://")
@@ -49,6 +50,7 @@ public class UploadController {
                 .append(baseFolderPath)
                 .append(filePath);
 
+        //生成随机的图片名称
         String imgName = UUID.randomUUID().toString().replace("_", "") + "_" + image.getOriginalFilename().replaceAll(" ", "");
         try {
             File dest = new File(baseFolder, imgName);

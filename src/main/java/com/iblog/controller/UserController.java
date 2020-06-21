@@ -6,10 +6,12 @@ import com.iblog.annotation.LoginRequired;
 import com.iblog.common.ApiResponse;
 import com.iblog.entity.User;
 import com.iblog.entity.UserToken;
+import com.iblog.service.RedisService;
 import com.iblog.service.UserService;
 import com.iblog.service.UserTokenService;
 import com.iblog.shiro.TokenGenerator;
 import com.iblog.util.StringUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +32,15 @@ import java.util.Map;
  **/
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     @Autowired
     private UserService userService;
     @Autowired
     private UserTokenService userTokenService;
+    @Autowired
+    private RedisService redisService;
 
     @LoginPass
     @PostMapping("/addUser")
@@ -44,6 +49,7 @@ public class UserController {
         String phone = user.getPhone();
         String password = user.getPassword();
         String nickname = user.getNickname();
+
         if (StringUtil.isBlank(phone)) {
             return ApiResponse.buildErrorMessage("手机号不可为空");
         }else if (StringUtil.isBlank(password)){
@@ -57,6 +63,13 @@ public class UserController {
                 return ApiResponse.buildErrorMessage("该手机号已被注册");
             }
         }
+        //从redis中取出验证码，并判断验证码是否正确
+        String code = redisService.getString(phone);
+        log.info("手机号"+phone+"的验证码为："+code);
+        if (code == null || !code.equals(user.getCode())){
+            return ApiResponse.buildErrorMessage("验证码不正确");
+        }
+        //注册用户
         String salt = RandomStringUtils.randomAlphanumeric(8);
         Date date = new Date();
         user.setCreateTime(date);

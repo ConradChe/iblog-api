@@ -18,10 +18,11 @@ import java.util.Date;
 public class User {
     @TableId
     private Long userId;
-    @NotBlank
+    @NotBlank(message = "手机号不可为空")
     private String phone;
-    @NotBlank
+    @NotBlank(message = "密码不可为空")
     private String password;
+    private String code;
     private String nickname;
     private String salt;
     private String name;
