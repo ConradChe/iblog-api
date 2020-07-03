@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @program: iblog-api
  * @description:
@@ -33,14 +30,15 @@ public class PhoneCodeController {
     @LoginPass
     @GetMapping("/getPhoneCode")
     public ApiResponse getPhoneCode(String phone){
+        if (phone==null || phone.isEmpty()){
+            return ApiResponse.buildErrorMessage("请上传手机号");
+        }
         //生成验证码
         String code = PhoneCode.vcode();
-        Map result = new HashMap();
-        result.put("code",code);
         //将code存入redis，存储五分钟
         redisService.setString(phone,code,5*60);
         //将验证码放入消息队列，等待消费者消费消息
         messageService.sendMsg(phone,code);
-        return ApiResponse.buildSuccessResponse(result);
+        return ApiResponse.buildSuccessMessage("短信验证码已发送");
     }
 }
